@@ -9,9 +9,19 @@ const getSum = () => {
 		sum += Number(p.innerText);
 	})
 
-	const tot = document.createElement("tr");
-	tot.innerHTML =`<td>Total  ${sum}</td>`;
-	document.body.appendChild(tot);
+	
+    const existingTotal = document.getElementById("ans");
+    if (existingTotal) {
+        existingTotal.remove();
+    }
+
+    // Create a new total row
+    const tot = document.createElement("tr");
+    tot.id = "ans"; 
+    tot.innerHTML = `<td colspan="2">Total: ${sum}</td>`;
+
+    
+    document.querySelector("table").appendChild(tot);
 	
 };
 
